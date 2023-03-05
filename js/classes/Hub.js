@@ -29,16 +29,17 @@ export default class Hub {
 
 
 		// ! Тесты
-		// document.addEventListener('keydown', (e) => {
-		// 	if ((e.code == 'KeyA') && (e.ctrlKey || e.metaKey)) {
-		// 		e.preventDefault();
-		// 		// console.log('storeQueue: ', this.storeQueue)				
-		// 		// console.log('displDimen: ', this.)
-		// 		// console.log('activQueue: ', this.activeQueue)
+		document.addEventListener('keydown', (e) => {
+			if ((e.code == 'KeyA') && (e.ctrlKey || e.metaKey)) {
+				e.preventDefault();
+				console.log('storeQueue: ', this.storeQueue)
+				// console.log('displDimen: ', this.)
+				console.log('activQueue: ', this.activeQueue)
 
-		// 		// console.log('wards: ', this.wards)
-		// 	}
-		// })
+				console.log('wards: ', this.wards)
+				console.log('wardsMap: ', this.wardsMap)
+			}
+		})
 	}
 
 	generateUID(prefix) {
