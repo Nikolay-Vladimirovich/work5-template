@@ -1,0 +1,48 @@
+@function px($px) {
+	@return $px + px;
+}
+@function prc($desire, $design-total) {
+	// ((Желаемое значение в px), (B относительно какого значения? Смотрим в макете в px, но указываем без px!!!))
+	// Например: ширина колонки 500px по дизайнмакету, а ширина родителя по макету 800px
+	// значит пишем width: prc(500,800); // выйдет 62.5%
+	// padding-left: (20, 800); // выйдет 2.5%
+	// * Т.е. это для работы с дизайн-макетом !
+	// ! Надо быть аккуратным с этой функцией !
+	$res: math.div($desire, $design-total) * 100%;
+	@return $res;
+}
+@function rem($px) {
+	$res: math.div($px, 16) + rem;
+	@return $res;
+}
+@function em($px) {
+	$res: math.div($px, 16) + em;
+	@return $res;
+}
+@function bp-val($name) {
+	$width: map-get($grid-breakpoints, $name);
+	@return $width;
+}
+
+// $escaped-characters: (
+//   ("<", "%3c"),
+//   (">", "%3e"),
+//   ("#", "%23"),
+//   ("(", "%28"),
+//   (")", "%29"),
+// );
+
+// @function escape-svg($string) {
+// 	@if str-index($string, "data:image/svg+xml") {
+// 	  @each $char, $encoded in $escaped-characters {
+// 		 // Do not escape the url brackets
+// 		 @if str-index($string, "url(") == 1 {
+// 			$string: url("#{str-replace(str-slice($string, 6, -3), $char, $encoded)}");
+// 		 } @else {
+// 			$string: str-replace($string, $char, $encoded);
+// 		 }
+// 	  }
+// 	}
+ 
+// 	@return $string;
+//  }

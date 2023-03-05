@@ -1,0 +1,31 @@
+$padd-ratio: 2 !default;
+
+@function padd-min($x) {
+	$res: math.div($x, $padd-ratio);
+	@return $res;
+}
+// Paddings
+@mixin a-padd($x, $x-min: padd-min($x), $type: 0) {
+	@include a-val-doorstep("padding", $x, $x-min, $type);
+}
+@mixin a-padd-h($a, $b: $a, $a-min: padd-min($a), $b-min: padd-min($b), $type: 0) {
+	@include a-val-doorstep("padding-left", $a, $a-min, $type);
+	@include a-val-doorstep("padding-right", $b, $b-min, $type);
+}
+@mixin a-padd-v($a, $b: $a, $a-min: padd-min($a), $b-min: padd-min($b), $type: 0) {
+	@include a-val-doorstep("padding-top", $a, $a-min, $type);
+	@include a-val-doorstep("padding-bottom", $b, $b-min, $type);
+}
+
+@mixin a-padd-l($x, $x-min: padd-min($x), $type: 0) {
+	@include a-val-doorstep("padding-left", $x, $x-min, $type);
+}
+@mixin a-padd-r($x, $x-min: padd-min($x), $type: 0) {
+	@include a-val-doorstep("padding-right", $x, $x-min, $type);
+}
+@mixin a-padd-t($x, $x-min: padd-min($x), $type: 0) {
+	@include a-val-doorstep("padding-top", $x, $x-min, $type);
+}
+@mixin a-padd-b($x, $x-min: padd-min($x), $type: 0) {
+	@include a-val-doorstep("padding-bottom", $x, $x-min, $type);
+}

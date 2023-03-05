@@ -1,0 +1,61 @@
+/* -------------------- navbar - адаптивность : начало -------------------- */
+body.is-locked {
+	// overflow: hidden;
+	@include bp($navbar-bp1) {
+		// overflow: auto;
+	}
+}
+.navbar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	pointer-events: none; // ! Важно для анимаций !
+	@include bp($navbar-bp1) {
+		// width: 40%;
+	}
+	&.is-expanded {
+		pointer-events: all; // ! Важно для анимаций !
+	}
+	@include bp($navbar-bp2) {
+		pointer-events: all;
+	}
+	.nav-wrap {
+		transition-duration: var(--navbar-toggle-duration, 0.5s);
+		transition-property: transform, opacity;
+		transform: translateX(-100%);
+		opacity: 0;
+		@include bp($navbar-bp1) {}
+		@include bp($navbar-bp2) {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+	&.is-expanded .nav-wrap {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	.ctrls-wrap {
+		pointer-events: all; // ! Важно для анимации !
+		position: absolute;
+		z-index: 2;
+		left: 0;
+		top: 0;
+		min-width: rem(40);
+		min-height: rem(40);
+		z-index: 1;
+		transition-duration: var(--navbar-toggle-duration, 0.5s);
+		transition-property: transform, left;
+		@include bp($navbar-bp1) {}
+		@include bp($navbar-bp2) {
+			display: none;
+		}
+	}
+	&.is-expanded .ctrls-wrap {
+		left: 100%;
+		transform: translateX(-100%);
+		// right: 0;
+		top: 0;
+	} 
+}
+
+/* -------------------- navbar - адаптивность : конец -------------------- */

@@ -1,0 +1,70 @@
+<div class="modal fade modal--create-shop" id="createShop" tabindex="-1" aria-labelledby="createShopLabel"
+	  aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" data-bs-show="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="createShopLabel">Создать магазин</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<!-- / .modal-header -->
+			<div class="modal-body">
+				<fieldset class="flds-shop-settings flds flds--2x">
+					<div class="flds__col">
+						<label class="form-label" for="createShop__template">Шаблон</label>
+						<select class="form-select" aria-label="Default select" id="createShop__template">
+							<option selected>Стандартный</option>
+							<option value="1">Расширенный</option>
+							<option value="2">Супер-пупер</option>
+							<option value="3">Мега-крутяк</option>
+						</select>
+					</div>
+					<!-- / .flds__col (1) -->
+					<div class="flds__col">
+						<label class="form-label" for="createShop__colortheme">Цветовая схема</label>
+						<select class="form-select" aria-label="Default select" id="createShop__colortheme">
+							<option selected>Классическая</option>
+							<option value="1">Красная</option>
+							<option value="2">Зеленая</option>
+							<option value="3">Синяя</option>
+							<option value="4">Желтая</option>
+						</select>
+					</div>
+					<!-- / .flds__col (2) -->
+				</fieldset>
+				<!-- / .flds -->
+
+				<fieldset class="flds flds-shop-domain">
+
+					<label class="form-label" for="createShop__colortheme">Домен</label>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Например: ivangrozniy"
+								 aria-label="Например: ivangrozniy" aria-describedby="createShop__secondary_domain"
+								 id="createShop__primary_domain" />
+						<span class="input-group-text" id="createShop__secondary_domain">.work5.ru</span>
+					</div>
+
+					<div class="warningbox">
+						<p>
+							В названии домена разрешены латиница и “-”, запрещается
+							использовать словосочетание Work 5. После создания магазина Вы
+							сможете прикрутить свой домен (например ivangrozniy.ru).
+							Подробнее по <a href="#">ссылке</a>
+						</p>
+					</div>
+				</fieldset>
+				
+			</div>
+			<!-- / .modal-body -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+					Отмена
+				</button>
+				<button type="button" class="btn btn-primary">Создать</button>
+			</div>
+			<!-- / .modal-footer -->
+		</div>
+		<!-- / .modal-content -->
+	</div>
+	<!-- / .modal-dialog -->
+</div>
+<!-- / .modal--create-shop -->

@@ -1,0 +1,76 @@
+/* ========== Кастомизация цветовой схемы : начало ========== */
+$work5-red: #ff0066;
+$work5-yellow: #ffcc00;
+$work5-green: #33cc00;
+$work5-teal: #55c97b;
+$work5-indigo: #6666cc;
+$work5-gray: #b1b1b1;
+$work5-graylight: #e4e4e4;
+
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #55c97b !default; // ! Изменил на 55c97b
+$teal: #20c997 !default;
+$cyan: #0dcaf0 !default;
+/* Общие цвета : начало */
+:root {
+	color-scheme: light dark;
+	
+	--work5-red: #{$work5-red};
+	--work5-yellow: #{$work5-yellow};
+	--work5-green: #{$work5-green};
+	--work5-teal: #{$work5-teal};
+	--work5-indigo: #{$work5-indigo};
+	--work5-gray: #{$work5-gray};
+	--work5-graylight: #{$work5-graylight};
+
+	--purple: #{$purple};
+	--blue: #{$blue};
+	--cyan: #{$cyan};
+	--orange: #{$orange};
+	--yellow: #{$yellow};
+}
+/* Общие цвета : конец */
+
+/* ========== Кастомизация цветовой схемы : конец ========== */
+/* ========== Общая кастомизация : начало ========== */
+:root {
+	--body-font-family: Roboto;
+	--simple-transition-duration: 0.25s; /* Скорость простых анимаций */
+	--simple-transition-delay: 0s;
+	--navbar-toggle-duration: 0.5s; /* Скорость анимаций появления меню */
+	/* Кнопка переключения меню: */
+	--burger-font-family: var(--body-font-family);
+	--burger-toggle-duration: 1s;
+}
+/* ========== Общая кастомизация : конец ========== */
+/* ========== Размеры : начало ========== */
+$menu-item-icon-width: rem(21) !default;
+$menu-item-inner-gap: rem(20) !default;
+$menu-item-decorator-width: rem(4) !default;
+/*  */
+$btn-icon-width: rem(14) !default;
+$btn-inner-gap: rem(12) !default;
+$btn-icon-small-width: rem(10) !default;
+/*  */
+$userbar-icon-width: rem(24) !default;
+$notice-width: rem(13) !default;
+:root {
+	--menu-item-icon-width: #{$menu-item-icon-width}; /* Иконки в меню - ширина. А высота = ширине, т.к. задана через "aspect-ratio: 1;" */
+	--menu-item-inner-gap: #{$menu-item-inner-gap}; /* Промежуток между иконкой и текстом пункта меню */
+	--menu-item-decorator-width: #{$menu-item-decorator-width}; /* Ширина декоратора пункта меню */
+	/*  */
+	--btn-icon-width: #{$btn-icon-width}; /* Иконки внутри кнопки - ширина. А высота = ширине */
+	--btn-inner-gap: #{$btn-inner-gap};
+	--btn-icon-small-width: #{$btn-icon-small-width}; /* Иконки (маленькая) внутри кнопки - ширина. А высота = ширине */
+	/*  */
+	--userbar-icon-width: #{$userbar-icon-width}; /* Иконки в userbar */
+	--notice-width: #{$notice-width}; /* Маркер-уведомление (notice) в userbar */
+}
+
+/* ========== Размеры : конец ========== */

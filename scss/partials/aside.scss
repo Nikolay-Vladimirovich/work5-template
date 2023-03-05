@@ -1,0 +1,17 @@
+/* ============================== aside : начало ============================== */
+.aside {
+	.logo {
+		margin-top: rem(22);
+		margin-left: rem(25);
+		display: flex;
+		img {
+			display: block;
+			object-position: 50% 50%;
+			max-width: 100%;
+			height: auto;
+			width: rem(82);
+			aspect-ratio: 82/32;
+		}
+	}
+}
+/* ============================== aside : конец ============================== */

@@ -1,0 +1,98 @@
+<section class="managebox">
+	<div class="managebox__bar">
+		<button class="btn btn-primary iconed--plus iconed--small" data-bs-toggle="modal" data-bs-target="#createShop">
+<!--
+	Иконку можно добавлять просто ^^^ классом iconed--(имя-иконки).
+	А для маленькой иконки добавить класс iconed--small
+-->
+<!--
+	А так же иконку можно добавлять через тэг i классом icon, и внутри svg,
+	а для маленькой иконки добавить класс icon--small к тэгу i.
+-->
+<!-- Иконку можно вообще не добавлять, тогда текст в кнопке выстроится по центру -->
+<!--
+<i class="icon icon--small">
+	<svg fill="currentColor">
+		<use xlink:href="@img/svgsprites/svgsprites.svg#plus"></use>
+	</svg>
+</i>
+-->
+<!-- Либо без тэга i, а только тэгом svg, с теми же классами, что и для тэга i -->
+<!--
+<svg class="icon" fill="currentColor">
+	<use
+		xlink:href="@img/svgsprites/svgsprites.svg#plus"
+	></use>
+</svg>
+-->
+			<span>Создать свой магазин</span>
+		</button>
+	</div>
+	<!-- / .managebox__bar -->
+	<div class="managebox__title">
+		<h4>Управление магазинами</h4>
+	</div>
+	<!-- / .managebox__title -->
+	<div class="managebox__body">
+		<table class="table--type-1">
+			<thead>
+				<tr>
+					<th>№</th>
+					<th>Название</th>
+					<th>Адрес</th>
+					<th>Действие</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>12345</td>
+					<td>Дипломная работа</td>
+					<td><a href="#">http://www.work5.ru/services</a></td>
+					<td>
+
+						<div class="ctrlset ctrlset--managebox">
+							<button class="btn btn-primary iconed--pencil">
+
+								<span>Редактировать</span>
+							</button>
+							<button class="btn btn-secondary iconed--cross">
+								<span>Редактировать</span>
+							</button>
+						</div>
+						<!-- / .ctrlset ctrlset--managebox -->
+					</td>
+				</tr>
+				<tr>
+					<td>12345</td>
+					<td>Дипломная работа</td>
+					<td><a href="#">http://www.work5.ru/services</a></td>
+					<td>
+						<div class="ctrlset ctrlset--managebox">
+							<button class="btn btn-primary iconed--pencil">
+
+								<span>Редактировать</span>
+							</button>
+							<button class="btn btn-secondary iconed--cross">
+<!-- <i class="icon">
+	<svg fill="currentColor">
+		<use
+			xlink:href="@img/svgsprites/svgsprites.svg#cross"
+		></use>
+	</svg>
+</i> -->
+								<span>Редактировать</span>
+<!-- Можно так же добавить иконку после тэга span -->
+							</button>
+						</div>
+						<!-- / .managebox__ctrls -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- / .managebox__body -->
+
+	@@include('../modals/modal-create-shop.html')
+
+</section>
+<!-- / .managebox -->

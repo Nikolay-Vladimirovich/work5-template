@@ -1,0 +1,80 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:color";
+// ==================== Bootstrap функции и миксины : начало ====================
+@import "tmpl.commons/_from_bs.tech_vars.scss";
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../node_modules/bootstrap/scss/_mixins.scss";
+// ==================== Bootstrap функции и миксины : конец ====================
+//
+@import "svgicons.mixins/svgicons-helpers";
+@import "svgicons.mixins/menu-icons";
+@import "svgicons.mixins/buttons-icons";
+@import "svgicons.mixins/userbar-icons";
+@import "svgicons.mixins/marker-icons";
+@import "svgicons.mixins/breadcrumbs-icons";
+@import "svgicons.mixins/content-box-icons";
+@import "svgicons.mixins/close";
+//
+@import "tmpl.commons/adaptive/init";
+@import "base.config";
+@import "layout.config";
+@import "tmpl.commons/layout.mixins";
+/* ========================================
+Базовые стили : начало
+======================================== */
+/* ========== Подключение нестандартных шрифтов : начало ========== */
+@import "base/fonts/*.scss";
+/* ========== Подключение нестандартных шрифтов : конец ========== */
+// @import "base/normalize";
+@import "base/reset";
+@import "base/page.vis";
+@import "base/typography";
+@import "base/icons";
+@import "base/buttons.scss";
+@import "base/forms";
+/* ========================================
+Базовые стили : конец
+======================================== */
+/* ========================================
+Каркас страницы : начало
+======================================== */
+@import "page.layout";
+/* ========================================
+Каркас страницы : конец
+======================================== */
+/* ========================================
+Основные блоки-компоненты : начало
+======================================== */
+@import "components/navbar/init";
+@import "components/breadcrumbs/init";
+@import "components/userbar/init";
+@import "components/managebox/init";
+/* ========== Модальные окна : начало ========== */
+@import "components/modals/create-shop/init";
+/* ========== Модальные окна : конец ========== */
+/* ========================================
+Основные блоки-компоненты : конец
+======================================== */
+/* ========================================
+Основные части макета : начало
+======================================== */
+@import "partials/header";
+@import "partials/aside";
+@import "partials/main";
+@import "partials/footer";
+/* ========================================
+Основные части макета : конец
+======================================== */
+/* ========================================
+Переключение цветовой схемы : начало
+======================================== */
+@media (prefers-color-scheme: light) {
+	@import "color-scheme-light";
+}
+@media (prefers-color-scheme: dark) {
+	@import "color-scheme-dark";
+}
+/* ========================================
+Переключение цветовой схемы : конец
+======================================== */

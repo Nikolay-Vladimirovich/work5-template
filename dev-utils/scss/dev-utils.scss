@@ -1,0 +1,102 @@
+@mixin dev-mixin-outlines {
+	outline: 1px solid #000;
+	& > * {
+		outline: 1px dashed #f00;
+		& > * {
+			outline: 1px dashed #0f0;
+			& > * {
+				outline: 1px solid #f80;
+				& > * {
+					outline: 1px solid #888;
+					& > * {
+						outline: 1px dotted #666;
+						& > * {
+							outline: 1px dotted #f0f;
+						}
+					}
+				}
+			}
+		}
+	}
+	& *:before {
+		outline: 1px solid aqua;
+	}
+	& *:after {
+		outline: 1px solid pink;
+	}
+}
+
+.dev--overlayed-fullpage {
+	position: relative;
+	&:before {
+		top: 0;
+		left: 0;
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: 1000;
+		opacity: 0.5;
+		width: 100%;
+		height: 787px;
+		background: transparent url("@img/full.jpg") no-repeat 0 0;
+		// background-size: cover;
+	}
+}
+.dev--overlayed-no-header {
+	&:before {
+		// top: -800px;
+	}
+}
+.dev--containers-highlighted {
+	& .component-container {
+		background-color: #f8f;
+	}
+	& .content-container {
+		background-color: #8ff;
+	}
+	& [class*="__layout"] {
+		background-color: #f80;
+	}
+}
+.dev--outlined {
+	
+	.navbar {
+		@include dev-mixin-outlines;
+	}
+}
+.dev--js-ext-outlined {
+	// .navbar {
+	// 	@include dev-mixin-outlines;
+
+	// 	& [class*="__content"] {
+	// 		& *,
+	// 		& *:before,
+	// 		& *:after {
+	// 			outline: 0 !important;
+	// 		}
+	// 	}
+	// }
+}
+.dev--overlayed {
+	.modal--create-shop .modal-content {
+		position: relative;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			opacity: 0.5;
+			width: 100%;
+		}
+	}
+	.modal--create-shop .modal-content {
+		position: relative;
+		&:before {
+			width: 617px;
+			height: 444px;
+			background: transparent url("@img/popup.png") no-repeat 0 100%;
+		}
+	}
+}

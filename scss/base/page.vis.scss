@@ -1,0 +1,22 @@
+/* ============================== Визуальные стили для всей страницы : начало ============================== */
+/* 
+// Работает в Firefox
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--page-scrollbar-thumb-color) var(--page-scrollbar-track-color);
+}
+// Работает в Chrome, Edge и Safari
+*::-webkit-scrollbar {
+	width: rem(12);
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--page-scrollbar-track-color);
+}
+*::-webkit-scrollbar-thumb {
+	background-color: var(--page-scrollbar-thumb-color);
+	// border-radius: 20px;
+	// border: 3px solid var(--scrollbar-track-color);
+}
+ */
+/* ============================== Визуальные стили для всей страницы : конец ============================== */

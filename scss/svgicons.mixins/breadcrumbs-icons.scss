@@ -1,0 +1,12 @@
+$breadcrumbs-split-w: 7;
+$breadcrumbs-split-h: 9;
+$breadcrumbs-split-vb-w: 7;
+$breadcrumbs-split-vb-h: 9;
+$breadcrumbs-split-svg-body: "<path opacity='0.70' d=' M 0.27 0.00 L 2.03 0.00 C 3.68 1.40 5.09 3.06 6.43 4.74 C 4.96 6.18 3.52 7.65 1.96 9.00 L 0.28 9.00 C 1.53 7.54 2.75 6.04 4.00 4.57 C 2.76 3.04 1.55 1.50 0.27 0.00 Z' />";
+@mixin breadcrumbs-iconed($svg-color) {
+	ul.breadcrumbs li::before {
+		background-image: escape-svg(
+			url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='#{$breadcrumbs-split-w}' height='#{$breadcrumbs-split-h}' viewBox='0 0 #{$breadcrumbs-split-vb-w} #{$breadcrumbs-split-vb-h}' fill='#{$svg-color}'>#{$breadcrumbs-split-svg-body}</svg>")
+		);
+	}
+}

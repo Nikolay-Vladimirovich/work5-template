@@ -1,0 +1,18 @@
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/extensions/extensions.min.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	@@if (isDevUtilsEnable) { @@include('../dev-utils/head.html') }
+	<title>@@title</title>
+	<meta name="color-scheme" content="light dark">
+
+	<link rel="icon" href="favicon/favicon.svg">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="manifest" href="manifest.json">
+	<script defer src="js/extensions_app/extensions.app.min.js"></script>
+	<script defer src="js/app.min.js"></script>
+	@@if (isDevUtilsEnable) { @@include('../dev-utils/devscripts.html')	}
+</head>

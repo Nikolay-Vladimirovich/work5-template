@@ -1,0 +1,238 @@
+@use "sass:color";
+/* Светлая тема - начало */
+/*
+Цвета SVG-иконок задаются в SCSS, т.к. в css их нужно вставлять
+строкой в "backround-image: url(data:image/svg+xml, ...строка...)"
+в правильном формате, а цвет указывается внутри этой строки.
+SCSS автоматически генерирует эту строку для каждой иконки и каждого его состояния.
+*/
+/* 
+Но так же кастомизация цвета SVG-иконок работает через CSS, при условии,
+что мы вставили иконки непосредственно в HTML-код в нужном месте.
+Пример в разделе CSS -> NAVBAR -> "menu - визуальное оформление" и html-коде
+*/
+$invert-ratio: 70%;
+$lighten-ratio: 75%;
+$easy-lighten-ratio: 25%;
+$shadow-lighten-ratio: 100%;
+$darken-ratio: 25%;
+$easy-darken-ratio: 15%;
+$hard-darken-ratio: 35%;
+// #{invert()}
+
+$menu-item-icon-color: #{lighten(#7a7b7b, $lighten-ratio)};
+$menu-item-icon-color-hover: #{lighten(#6666cc, $lighten-ratio)};
+$menu-item-icon-color-active: #{lighten(#6666cc, $lighten-ratio)};
+
+$breadcrumbs-color: #{lighten(#656565, $lighten-ratio)};
+$breadcrumbs-split-svg-color: $breadcrumbs-color;
+:root {
+	--body-bg-color: #{lighten(invert(#f8faff, $invert-ratio), 5%)};
+	--body-font-color: #{lighten(#7d7d7d, $lighten-ratio)};
+	--links-font-color: #{lighten(#6666cc, $lighten-ratio)};
+	--links-font-color-active: #{lighten(#343434, $lighten-ratio)};
+
+	--headings-font-color: #{lighten(#343434, $lighten-ratio)};
+
+	--outline-color: #4bf;
+	--links-outline-color: #08f;
+
+	/* Скроллбар страницы - начало */
+	--page-scrollbar-track-color: #e4e4e4;
+	--page-scrollbar-thumb-color: #b1b1b1;
+
+	--breadcrumbs-font-color: $breadcrumbs-color;
+	--breadcrumbs-font-color-hover: #{lighten(#0d6efd, $easy-lighten-ratio)};
+	--breadcrumbs-font-color-active: #{lighten(#0d6efd, $easy-lighten-ratio)};
+	--breadcrumbs-font-color-current: #{lighten(#6666cc, $easy-lighten-ratio)};
+}
+/* ========== Цвета в кнопках- начало ========== */
+$btn-icon-color: #fff;
+$btn-icon-color-hover: #fffc;
+$btn-icon-color-active: #fffa;
+:root {
+	/* Текст в кнопке */
+	--btn-font-color: #{lighten(#fff, $lighten-ratio)};
+	--btn-font-color-hover: #{lighten(#fff, $lighten-ratio)};
+	--btn-font-color-active: #{lighten(#fff, $lighten-ratio)};
+	--btn-font-color-disabled: #{lighten(#777, $lighten-ratio)};
+	/* Иконка в кнопке */
+	--btn-icon-color: #{$btn-icon-color};
+	/* SVG-иконка кнопки */
+	--btn-icon-color-hover: #{$btn-icon-color-hover};
+	/* SVG-иконка кнопки при наведении */
+	--btn-icon-color-active: #{$btn-icon-color-active};
+	/* SVG-иконка кнопки при остальном интерактиве */
+}
+/* ========== Цвета в кнопках - конец ========== */
+/* ========== Цвета в ФОРМАХ - начало ========== */
+:root {
+	--form-label-font-color: #{lighten(#343434, $lighten-ratio)};
+	/*  */
+	--form-select-font-color: #{darken( #7c7c7c, $easy-darken-ratio)};
+	--form-select-bg-color:	#{darken(#fff, $easy-darken-ratio)};
+	--form-select-brd-color: #{darken(#cdcdcd, $darken-ratio)};
+	/*  */
+	--form-control-font-color: #{darken(#7d7d7d, $darken-ratio)};	
+	--form-control-bg-color: #e6e6e9;
+	--form-control-brd-color: #{invert(#e6e6e9, $invert-ratio)};
+
+	--form-control-font-color-focus: #{invert(#343434, $invert-ratio)}; // !
+	--form-control-bg-color-focus: #{lighten(#fff, $easy-lighten-ratio)};
+	--form-control-brd-color-focus: #{invert(#e6e6e9, $invert-ratio)};
+	/*  */
+	--input-group-text-font-color: #{lighten(#fff, $lighten-ratio)};
+	--input-group-text-bg-color: #{darken(#6666cc, $darken-ratio)};
+}
+/* ========== Цвета в ФОРМАХ - конец ========== */
+/* ========== Цвета в userbar - начало ========== */
+$userbar-icon: #{lighten(#7b7b7b, 10%)};
+$userbar-icon-hover: #{lighten(#6666cc, 10%)};
+$userbar-icon-active: #{lighten(#0d6efd, 10%)};
+$notice-outer: #fbf4f4;
+$notice-inner: #ff2121;
+$notice-outer-hover: #fbf4f4;
+$notice-outer-active: #fbf4f4;
+$notice-inner-hover: #fd7e14;
+$notice-inner-active: #ffc107;
+:root {
+	--userbar-brd-color: #{invert(#d4d4d4, $invert-ratio)};
+	--userbar-bg-color: #{invert(#f8faff, $invert-ratio)};
+	--userbar-item-box-shadow: #{lighten(rgba(136, 167, 245, 0.18), $lighten-ratio)};
+	/*  */
+	--userbar-box-brd-color: #{lighten(#d4d4d4, $lighten-ratio)};
+	--userbar-box-bg-color: #{invert(#fff, $invert-ratio)};
+	--userbar-box-shadow: #{lighten(rgba(136, 167, 245, 0.18), $lighten-ratio)};
+	--userbar-box-shadow-hover: #{lighten(rgba(136, 167, 245, 0.5), $lighten-ratio)};
+	--userbar-box-shadow-active: #{lighten(rgba(136, 167, 245, 0.5), $lighten-ratio)};
+	--userbar-font-color: #{lighten(#7d7d7d, $lighten-ratio)};
+	--userbar-font-color-hover: #{lighten(#7d7d7d, $lighten-ratio)};
+	--userbar-font-color-active: #{lighten(#7d7d7d, $lighten-ratio)};
+	/*  */
+	--userbar-icon: #{$userbar-icon};
+	/* SVG-иконка в userbar */
+	--userbar-icon-hover: #{$userbar-icon-hover};
+	/* SVG-иконка в userbar при наведении */
+	--userbar-icon-active: #{$userbar-icon-active};
+	/* SVG-иконка в userbar при остальном интерактиве */
+}
+/* ========== Цвета в userbar - конец ========== */
+/* ========== Цвета в managebox - начало ========== */
+:root {
+	--managebox-bg-color: #{invert(#fff, $invert-ratio)};
+	--managebox-box-shadow: #{lighten(rgba(40, 40, 40, 0.07), $shadow-lighten-ratio)};
+	--managebox-links-font-color: #{lighten(#6e6e6e, $lighten-ratio)};
+	/* Таблица */
+	--table-row-split-color: #e4e4e4;
+}
+/* ========== Цвета в managebox - конец ========== */
+/* ========== Цвета в модальном окне - начало ========== */
+$warningbox-svg-color: #{lighten(#6666cc, $easy-lighten-ratio)};
+$close-icon-color: #{lighten(#656565, $lighten-ratio)};
+:root {
+	--modal-box-shadow-color: #{lighten(rgba(37, 37, 37, 0.1), $shadow-lighten-ratio)};
+	--modal-content-bg-color: #{invert(#fff, $invert-ratio)};
+	--warningbox-font-color: #{lighten(#7d7d7d, $lighten-ratio)};
+}
+/* ========== Цвета в модальном окне- конец ========== */
+:root {
+	/* ========== Цвета в NAVBAR - начало ========== */
+	--navbar-box-shadow-color: #{lighten(rgba(136, 167, 245, 0.08), $invert-ratio)};
+	/* Цвет тени navbar'a */
+	--navbar-bg-color: #{invert(#fff, $invert-ratio)};
+	/* Цвет фона navbar'a */
+	--menu-inset-shadow-color: #{lighten(#ffff, $invert-ratio)};
+	/* Плавное перетекание по краям внутри меню №1 */
+	--menu-overflow-gradient-color: #{invert(#ffff, $invert-ratio)};
+	/* Плавное перетекание по краям внутри меню №2 */
+	/* ===== Пункты меню - начало ===== */
+	/* В состоянии hover */
+	--menu-item-decorator-bg-color-hover: #{lighten(#6666cc, $lighten-ratio)};
+	/* Цвет фона декоратора пункта */
+	--menu-item-decorator-shadow-color-hover: #{lighten(rgba(102, 102, 204, 0.67), $invert-ratio)};
+	/* Тень декоратора пункта */
+	/* При остальном интерактиве */
+	--menu-item-decorator-bg-color-active: #{invert(#6666cc, $invert-ratio)};
+	/* Цвет фона декоратора пункта */
+	--menu-item-decorator-shadow-color-active: #{lighten(rgba(102, 102, 204, 0.67), $invert-ratio)};
+	/* Тень декоратора пункта */
+	--menu-item-font-color: #{lighten(#7d7d7d, $lighten-ratio)};
+	/* Текст пункта */
+	--menu-item-font-color-hover: #{lighten(#343434, $lighten-ratio)};
+	/* Текст пункта при наведении */
+	--menu-item-font-color-active: #{lighten(#343434, $lighten-ratio)};
+	/* Текст пункта при остальном интерактиве */
+	/*
+	* Кастомизация цвета svg-иконок работает, когда мы вставили их непосредственно в html-код
+	* (пример в разделе CSS -> NAVBAR -> "menu - визуальное оформление")
+	* Иначе цвет меняем через SCSS!
+	*/
+	--menu-item-icon-color: #{$menu-item-icon-color};
+	/* SVG-иконка пункта */
+	--menu-item-icon-color-hover: #{$menu-item-icon-color-hover};
+	/* SVG-иконка пункта при наведении */
+	--menu-item-icon-color-active: #{$menu-item-icon-color-active};
+	/* SVG-иконка пункта при остальном интерактиве */
+	/* ===== Пункты меню - конец ===== */
+
+	/* ===== Кнопка переключения меню - начало ===== */
+	--burger-lines-color: #fd7e14;
+	--burger-font-color: #{lighten(#fd7e14, $lighten-ratio)};
+	/* Когда меню в раскрытом состоянии, JS добавляет кнопке класс is-active - */
+	--burger-lines-color-isactive: #55c97b;
+	--burger-font-color-isactive: #{lighten(#55c97b, $lighten-ratio)};
+	/* Интерактивные состояния - они приоритетнее, чем JS-состояние is-active - */
+	--burger-lines-color-hover: #6666cc;
+	--burger-font-color-hover: #{lighten(#6666cc, $lighten-ratio)};
+	--burger-lines-color-active: #0d6efd;
+	--burger-font-color-active: #{lighten(#0d6efd, $lighten-ratio)};
+	/* ===== Кнопка переключения меню - конец ===== */
+
+	/* ===== Скроллбар в меню - начало ===== */
+	/* В firefox не полностью работает (нет кастомизации стрелок и цвета ползунка в состоянии hover и active) */
+	--navbar-scrollbar-track-color: #e4e4e4;
+	/* Полоса */
+	--navbar-scrollbar-thumb-color: #55c97b;
+	/* Ползунок */
+	--navbar-scrollbar-thumb-color-hover: #6666cc;
+	/* Состояние-hover для ползунка (без ff) */
+	--navbar-scrollbar-thumb-color-active: #0d6efd;
+	/* Состояние-active для ползунка (без ff) */
+	--navbar-scrollbar-arrows-color: #55c97b;
+	/* Стрелки (без ff) */
+	/* Интерактивные состояния: */
+	--navbar-scrollbar-arrows-color-hover: #6666cc;
+	/* Состояние-hover для стрелок (без ff) */
+	--navbar-scrollbar-arrows-color-active: #0d6efd;
+	/* Состояние-active для стрелок (без ff) */
+	/* ===== Скроллбар в меню - конец ===== */
+	/* ========== Цвета в NAVBAR - конец ========== */
+}
+/* SVG-иконки в светлой теме - начало */
+/* Иконки в меню - начало */
+@include menu-iconed($menu-item-icon-color); // Цвета иконок меню
+@include menu-iconed-interactive($menu-item-icon-color-hover, $menu-item-icon-color-active); // Цвета иконок меню в интерактивном состоянии
+/* Иконки в меню - конец */
+/* Иконки в панели пользователя - начало */
+@include userbar-iconed($userbar-icon); // Цвет иконки конверта
+@include userbar-iconed-interactive($userbar-icon-hover, $userbar-icon-active); // Цвет иконки конверта в интерактиве
+@include markered($notice-outer, $notice-inner); // Цвет МАРКЕРА над иконкой конверта
+@include markered-interactive($notice-outer-hover, $notice-outer-active, $notice-inner-hover, $notice-inner-active); // Цвет МАРКЕРА над иконкой конверта в интерактиве
+/* Иконки в анели пользователя - конец */
+/* Иконки в кнопках - начало */
+@include buttons-iconed($btn-icon-color); // Цвет иконок внутри кнопок
+@include buttons-iconed-interactive($btn-icon-color-hover, $btn-icon-color-active); // Цвет иконок внутри кнопок при интерактиве
+/* Иконки в кнопках - конец */
+/* Иконки-разделители - начало */
+@include breadcrumbs-iconed($breadcrumbs-split-svg-color); // Цвет разделителя "хлебных крошек"
+/* Иконки-разделители - конец */
+/* Иконки внутри контент-блоков - начало */
+@include warningbox-iconed($warningbox-svg-color); // Цвет иконки восклицательного знака в кружке
+/* Иконки внутри контент-блоков - конец */
+/* Иконки взаимодействия с модальными окнами - начало */
+@include btn-close-iconed($close-icon-color); // Цвет иконки кнопки закрытия (пример в модальном окне)
+@include btn-close-iconed-interactive($close-icon-color); // Цвет иконки кнопки закрытия (пример в модальном окне)
+/* Иконки взаимодействия с модальными окнами - конец */
+/* SVG-иконки в светлой теме - конец */
+
+/* Светлая тема- конец */

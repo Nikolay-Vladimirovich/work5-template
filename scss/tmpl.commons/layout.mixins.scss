@@ -1,0 +1,51 @@
+@mixin component-container {
+	display: flex;
+	// Центрируем по обеим осям содержимое
+	justify-content: center;
+	align-items: center;
+	// Задаем адаптивную минимальную высоту
+	// @include a-val-doorstep("min-height", 469, 0, inside, md, xl);
+	@include bp(xl) {
+		// min-height: 469px;
+	}
+}
+@mixin content-container {
+	margin: 0 auto;
+	width: 100%;
+	min-width: rem($content-min-width);
+	max-width: rem($content-max-width);
+	
+}
+.component-container {
+	@include component-container;
+}
+.content-container {
+	@include content-container;
+}
+
+// PADDINGS
+// Внутренние отступы - общие для контента
+@mixin content-paddings-h { // горизонтальные
+	@include a-padd-h(30);
+}
+@mixin content-paddings-v { // вертикальные
+	@include a-padd-v(40);
+	@include bp(xl) {
+		@include a-padd-v(30);
+	}
+	@include bp(ceil) {
+		@include a-padd-v(20);
+	}
+}
+@mixin content-paddings { // горизонтальные и вертикальные вместе
+	@include content-paddings-h;
+	@include content-paddings-v;
+}
+
+// MARGINS
+@mixin content-margins-r { // горизонтальные
+	@include a-marg-r(30);
+}
+@mixin content-margins-h { // горизонтальные
+	@include a-marg-h(30);
+}

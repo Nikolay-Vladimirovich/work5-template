@@ -1,0 +1,169 @@
+@mixin media($width) {
+	@media (min-width: em($width)) {
+		// Директива @content. Заменяет блок правил, который передается как содержимое миксина.
+		@content;
+	}
+}
+@mixin media-max($width) {
+	@media (max-width: em($width - 1)) {
+		@content;
+	}
+}
+@mixin media-min-and-max($width-min, $width-max) {
+	@media (min-width: em($width-min)) and (max-width: em($width-max - 1)) {
+		@content;
+	}
+}
+
+@mixin bp($name) {
+	$width: map-get($grid-breakpoints, $name);
+	@include media($width) {
+		@content;
+	}
+}
+
+$global-doorstep-1: ceil !default; // Минимальный порог для исключений
+$global-doorstep-2: ceil !default; // Максимальный порог для исключений
+
+$global-doorstep-default: ceil !default; // Самая большая ширина дизайн-макета
+
+@mixin a-val-doorstep(
+	$property,
+	$initial-size: 0,
+	$final-size: 0,
+	$type: 0,
+	$doorstep: 0,
+	$doorstep-end: 0,
+	// adaptive/_variables.scss --> $grid-breakpoints значаения массива
+	$page-width-min: $container-min-width,
+	$page-width-max: $wide-container-max-width
+) {
+	$units: px;
+	$add-size: $initial-size - $final-size;
+	$final-size-units: $final-size + $units;
+	$regular-size-units: $initial-size + $units;
+
+	@if $property == "font-size" {
+		$final-size-units: rem($final-size);
+		$regular-size-units: rem($initial-size);
+	}
+	@if $property == "line-height" {
+		// $units: '';
+		$final-size-units: $final-size + em;
+		$regular-size-units: $initial-size + em;
+		// $final-size-units: $final-size*100%;
+		// $regular-size-units: $initial-size*100%;
+	}
+
+	@if (($type==1) or ($type == "to")) {
+		// Только если меньше контейнера
+		// от минималки до ширины ДИЗАЙНА (либо до переприсвоенной ширины)
+
+		// #{$property}: $regular-size-units; // !
+
+		@if ($doorstep != 0) {
+			$doorstep: bp-val($doorstep);
+		} @else if ($doorstep == 0 and global-variable-exists(global-doorstep-1)) {
+			$doorstep: bp-val($global-doorstep-1);
+		} @else if global-variable-exists(global-doorstep-default) {
+			$doorstep: bp-val($global-doorstep-default);
+		} @else {
+			$doorstep: 0;
+		}
+		@include media-max($doorstep) {
+			// mixin before : начало
+			// #{$property}: calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$page-width-min + px}) / #{$doorstep - $page-width-min}));
+			#{$property}: max(#{$final-size-units}, min(calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$page-width-min + px}) / #{$doorstep - $page-width-min})), #{$regular-size-units}));
+			// mixin before : конец
+		}
+	} @else if (($type == 2) or ($type == "from")) {
+		// Только если больше контейнера
+		// от максимальной ширины ДИЗАЙНА (либо от переприсвоенной в аргументах ширины)
+		// до сверх-ширины ДИЗАЙНА
+
+		// #{$property}: $final-size-units; // !
+
+		@if ($doorstep != 0) {
+			$doorstep: bp-val($doorstep);
+		} @else if ($doorstep == 0 and global-variable-exists(global-doorstep-2)) {
+			$doorstep: bp-val($global-doorstep-2);
+		} @else if global-variable-exists(global-doorstep-default) {
+			$doorstep: bp-val($global-doorstep-default);
+		} @else {
+			$doorstep: 0;
+		}
+
+		@include media($doorstep) {
+			// mixin after : начало
+			// #{$property}: calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$doorstep + px}) / #{$page-width-max - $doorstep}));
+			#{$property}: max(#{$final-size-units}, min(calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$doorstep + px}) / #{$page-width-max - $doorstep})), #{$regular-size-units}));
+			// mixin after : конец
+		}
+	} @else if (($type == 3) or ($type == "inside")) {
+		// Только если внутри диапазона
+		// #{$property}: $regular-size-units; // !
+
+		@if ($doorstep != 0 and $doorstep-end != 0) {
+			$doorstep: bp-val($doorstep);
+			$doorstep-end: bp-val($doorstep-end);
+		} @else if ($doorstep == 0 and global-variable-exists(global-doorstep-1) and global-variable-exists(global-doorstep-2)) {
+			$doorstep: bp-val($global-doorstep-1);
+			$doorstep-end: bp-val($global-doorstep-2);
+		} @else if global-variable-exists(global-doorstep-default) {
+			$doorstep: bp-val($global-doorstep-default);
+			$doorstep-end: bp-val($global-doorstep-default);
+		} @else {
+			$doorstep: 0;
+			$doorstep-end: 0;
+		}
+		
+		@include media-min-and-max($doorstep, $doorstep-end) {
+			// mixin inside : начало
+			#{$property}: calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$doorstep + px}) / #{$doorstep-end - $doorstep}));
+			// mixin inside : конец
+		}
+		
+	} @else if (($type == 4) or ($type == "outside")) {
+		// Только если внутри диапазона
+		// #{$property}: $regular-size-units; // !
+
+		@if ($doorstep != 0 and $doorstep-end != 0) {
+			$doorstep: bp-val($doorstep);
+			$doorstep-end: bp-val($doorstep-end);
+		} @else if ($doorstep == 0 and global-variable-exists(global-doorstep-1) and global-variable-exists(global-doorstep-2)) {
+			$doorstep: bp-val($global-doorstep-1);
+			$doorstep-end: bp-val($global-doorstep-2);
+		} @else if global-variable-exists(global-doorstep-default) {
+			$doorstep: bp-val($global-doorstep-default);
+			$doorstep-end: bp-val($global-doorstep-default);
+		} @else {
+			$doorstep: 0;
+			$doorstep-end: 0;
+		}
+		
+		@include media-max($doorstep) {
+			// mixin outside : начало
+			#{$property}: calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$page-width-min + px}) / #{$page-width-max - $page-width-min}));
+		}
+		@include media($doorstep-end) {
+			#{$property}: calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$page-width-min + px}) / #{$page-width-max - $page-width-min}));
+			// mixin outside : конец
+		}
+		
+	} @else {
+		// Всегда - до ширины дизайна
+
+		@if ($doorstep != 0) {
+			$doorstep: bp-val($doorstep);
+		} @else if global-variable-exists(global-doorstep-default) {
+			$doorstep: bp-val($global-doorstep-default);
+		} @else {
+			$doorstep: 0;
+		}
+
+		// mixin always : начало
+		// #{$property}: calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$page-width-min + px}) / #{$doorstep - $page-width-min}));
+		#{$property}: max($final-size-units, min(calc(#{$final-size-units} + #{$add-size} * ((100vw - #{$page-width-min + px}) / #{$doorstep - $page-width-min})), $regular-size-units));
+		// mixin always : конец
+	}
+}

@@ -1,0 +1,28 @@
+/* -------------------- menu - типографика : начало -------------------- */
+.menu {
+	font-size: rem(14);
+	font-weight: 500;
+	&__link {
+		color: var(--menu-item-font-color, #7d7d7d);
+		transition-duration: var(--simple-transition-duration, 0.25s);
+		transition-delay: var(--simple-transition-delay, 0);
+		transition-property: color;
+		text-decoration: none;
+		user-select: none;
+		cursor: pointer;
+		&:hover {
+			color: var(--menu-item-font-color-hover, #343434);
+			text-decoration: none;
+		}
+		&:focus-visible,
+		&:focus,
+		&:active {
+			color: var(--menu-item-font-color-active, #343434);
+			text-decoration: none;
+		}
+		span {
+			padding-top: rem(2);
+		}
+	}
+}
+/* -------------------- menu - типографика : конец -------------------- */

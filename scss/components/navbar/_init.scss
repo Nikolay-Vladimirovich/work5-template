@@ -1,0 +1,14 @@
+/* ============================== navbar : начало ============================== */
+$navbar-bp1: md;
+$navbar-bp2: lg;
+
+@import "adp/navbar.adp";
+// @import "adp/plainsight.adp";
+@import "adp/burger";
+
+@import "navbar";
+
+@import "menu.typ";
+@import "menu.vis";
+@import "menu.lay";
+/* ============================== navbar : конец ============================== */

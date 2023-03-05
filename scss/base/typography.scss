@@ -1,0 +1,59 @@
+/* ============================== Типографика : начало ============================== */
+body {
+	color: var(--body-font-color, #7d7d7d);
+	font-family: var(--body-font-family), sans-serif;
+	font-size: rem(14);
+	line-height: 1.2;
+	background-color: var(--body-bg-color, #f8faff);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.5;
+	color: var(--headings-font-color, #343434);
+	font-weight: bold;
+}
+h1 {
+	font-size: rem(42);
+}
+h2 {
+	font-size: rem(28);
+	// font-weight: 600;
+}
+h3 {
+	font-size: rem(24);
+}
+h4 {
+	font-size: rem(20);
+	font-weight: 500;
+}
+h5 {
+	font-size: rem(18);
+}
+p {
+	color: var(--body-font-color, #7d7d7d);
+	// @include a-fz($p-fz, $p-fz-min);
+}
+a {
+	text-decoration: none;
+	color: var(--links-font-color, #6666cc);
+	&:hover,
+	&:focus-visible,
+	&:active {
+		color: var(--links-font-color-active, #343434);
+		text-decoration: underline;
+	}
+	&:focus {
+		color: var(--links-font-color-active, #343434);
+	}
+}
+:focus-visible {
+	outline: 1px solid var(--outline-color, #4bf);
+}
+a:focus-visible {
+	outline: 1px solid var(--links-outline-color, #08f);
+}
+/* ============================== Типографика : конец ============================== */

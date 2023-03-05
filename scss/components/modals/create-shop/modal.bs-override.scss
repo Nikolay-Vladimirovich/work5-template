@@ -1,0 +1,29 @@
+/* -------------------- Модальное окно - "Создать магазин" - кастомизация bootstrap : начало -------------------- */
+$prefix: bs-;
+$modal-md: rem(616);
+$modal-content-box-shadow-sm-up: rem(0) rem(14) rem(28) 0 var(--modal-box-shadow-color, rgba(37, 37, 37, 0.1));
+$modal-footer-margin-between: rem(10);
+$modal-backdrop-bg: transparent;
+$modal-backdrop-opacity: 0.5;
+$modal-content-border-radius: rem(5);
+$modal-inner-padding: rem(19) rem(17) rem(16) rem(27);
+$modal-header-padding: rem(23) rem(21) rem(24) rem(29);
+
+.modal {
+	--#{$prefix}modal-width: #{$modal-md};
+	--#{$prefix}modal-padding: #{$modal-inner-padding};
+	--#{$prefix}modal-border-radius: #{$modal-content-border-radius};
+	@include bp(sm) {
+		--#{$prefix}modal-box-shadow: #{$modal-content-box-shadow-sm-up};
+	}
+	--#{$prefix}modal-header-padding: #{$modal-header-padding};
+	--#{$prefix}modal-footer-gap: #{$modal-footer-margin-between};
+}
+.modal-content {
+	--#{$prefix}modal-bg: var(--modal-content-bg-color, #fff);
+}
+.modal-backdrop {
+	--#{$prefix}backdrop-bg: #{$modal-backdrop-bg};
+	--#{$prefix}backdrop-opacity: #{$modal-backdrop-opacity};
+}
+/* -------------------- Модальное окно - "Создать магазин" - кастомизация bootstrap : конец -------------------- */

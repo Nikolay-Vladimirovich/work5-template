@@ -1,0 +1,77 @@
+/* -------------------- userbar - расположение внутри : начало -------------------- */
+.userbar {
+	padding-top: rem(3);
+	display: grid;
+	grid-auto-flow: column;
+	gap: rem(16);
+	&__item {
+		min-width: rem(65);
+		min-height: rem(65);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--userbar-bg-color, #fff);
+		border: 1px solid var(--userbar-brd-color, #d4d4d4);
+		border-radius: rem(5);
+		padding-top: rem(1);
+
+		box-shadow: 0 0 rem(16) 0 var(--userbar-item-box-shadow, transparent);
+	}
+}
+
+/* Элемент accountbox : начало */
+.accountbox {
+	min-width: rem(64);
+	@include bp(sm) {
+		min-width: rem(256);
+	}	
+	min-height: rem(65);
+	display: grid;
+	grid-auto-flow: column;
+	gap: rem(16);
+	align-items: center;
+	justify-content: start;
+	padding: rem(10) rem(17);
+	background: var(--userbar-box-bg-color, #fff);
+	border-radius: rem(5);
+	box-shadow: 0 0 rem(16) 0 var(--userbar-box-shadow, rgba(136, 167, 245, 0.18));
+	color: var(--userbar-font-color, #7d7d7d);
+	text-decoration: none;
+	transition: box-shadow var(--simple-transition-duration, 0.25s);
+
+	&:focus-visible,
+	&:hover {
+		color: var(--userbar-font-color-hover, #7d7d7d);
+		text-decoration: none;
+		box-shadow: 0 0 rem(16) 0 var(--userbar-box-shadow-hover, rgba(136, 167, 245, 0.5));
+	}
+	
+	&:active {
+		color: var(--userbar-font-color-active, #7d7d7d);
+		text-decoration: none;
+		box-shadow: 0 0 rem(16) 0 var(--userbar-box-shadow-active, rgba(136, 167, 245, 0.5));
+	}
+	&__userpic {
+		user-select: none;
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+		border-radius: 50%;
+		border: rem(3) solid var(--userbar-box-brd-color, #d4d4d4);
+		width: rem(45);
+		aspect-ratio: 1;
+		overflow: hidden;
+
+		img {
+			max-width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__username {
+		display: block;
+		padding-top: rem(3);
+		@include text-truncate;
+	}
+}
+/* -------------------- userbar - расположение внутри : конец --------------------- */

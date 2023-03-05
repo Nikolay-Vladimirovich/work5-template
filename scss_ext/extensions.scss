@@ -1,0 +1,46 @@
+@use "sass:math";
+
+@import "../scss/tmpl.commons/adaptive/functions.scss";
+/*  */
+
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+@import "variables";
+@import "../../node_modules/bootstrap/scss/_maps.scss";
+@import "../../node_modules/bootstrap/scss/_mixins.scss";
+@import "../../node_modules/bootstrap/scss/_utilities.scss";
+
+@import "../../node_modules/bootstrap/scss/transitions";
+// @import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/forms/_labels.scss";
+@import "../../node_modules/bootstrap/scss/forms/_form-text.scss";
+@import "../../node_modules/bootstrap/scss/forms/_form-control.scss";
+@import "../../node_modules/bootstrap/scss/forms/_form-select.scss";
+// @import "../../node_modules/bootstrap/scss/forms/_form-check.scss";
+// @import "../../node_modules/bootstrap/scss/forms/_form-range.scss";
+// @import "../../node_modules/bootstrap/scss/forms/_floating-labels.scss";
+@import "../../node_modules/bootstrap/scss/forms/_input-group.scss";
+// @import "../../node_modules/bootstrap/scss/forms/_validation.scss";
+
+@import "_buttons.scss";
+@import "_modal.scss";
+@import "_close.scss";
+
+// Helpers
+// @import "../../node_modules/bootstrap/scss/helpers";
+
+// Utilities
+// @import "../../node_modules/bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
+
+// /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Сторонние плагины : начало ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// /* ============================== swiper : начало ============================== */
+// // @import "../../node_modules/swiper/swiper";
+// /* ============================== swiper : конец ============================== */
+// /* ============================== swiper-pagination : начало ============================== */
+// // @import "../../node_modules/swiper/modules/pagination/pagination";
+// /* ============================== swiper-pagination : конец ============================== */
+// /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Сторонние плагины : конец ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

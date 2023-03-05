@@ -1,0 +1,65 @@
+/* -------------------- Кнопки : конец -------------------- */
+.btn {
+	--bs-btn-color: var(--btn-font-color, #fff);
+	--bs-btn-hover-color: var(--btn-font-color-hover, #fff);
+	--bs-btn-active-color: var(--btn-font-color-active, #fff);
+	--bs-btn-disabled-color: var(--btn-font-color, #777);
+	display: inline-flex;
+	// grid-auto-flow: column;
+	column-gap: var(--btn-inner-gap, rem(12));
+	align-items: center; /* Вертикальное выравнивание внутри кнопки с иконкой, заданной классом */
+	justify-content: center; /* По макету вышло выравнивание слева, возможно стоит поменять */
+	min-height: rem(36);
+
+	& > *:not([class*="icon"]) {
+		/* Текстовый элемент внутри кнопки */
+		@include text-truncate; // * bootstrap mixins include
+		max-height: rem(48);
+		min-width: 3em;
+	}
+	& > .icon + *:not([class*="icon"]) {
+	}
+}
+/*
+Иконка может быть встроена внутри html-кода пункта меню как:
+i.icon>svg[fill='currentColor']>use[xlink:href='@img/svgsprites/svgsprites.svg#cross'] (emmet-конструкция)
+Либо с применением класса "iconed--cross" к самому menu__link
+Где вместо cross должно быть реальный id иконки из спрайта svgsprites.svg!
+*/
+.btn > .icon {
+	color: var(--btn-icon-color, #fff);
+	width: var(--btn-icon-width, rem(14));
+	display: inline-flex;
+	/* Анимация: */
+	svg {
+		width: var(--btn-icon-width, rem(14));
+	}
+}
+.btn > .icon--small {
+	/* Иконка поменьше */
+	width: var(--btn-icon-small-width, rem(10));
+	margin-left: rem(1);
+	margin-right: rem(1);
+}
+.btn:hover .icon {
+	color: var(--btn-icon-color-hover, #fffc);
+}
+.btn:focus-visible .icon,
+.btn:active .icon {
+	color: var(--btn-icon-color-active, #fffa);
+}
+/* Иконки внутри пункта меню через вставку в html-код: конец */
+/* Иконка, заданная классом на кнопке : начало */
+.btn[class*="iconed--"] > *:not([class*="icon"]) {
+	padding-right: rem(6);
+}
+.btn[class*="iconed--"]::before {
+	width: var(--btn-icon-width, rem(14));
+}
+.btn[class*="iconed--small"]::before {
+	width: var(--btn-icon-small-width, rem(10));
+	margin-left: rem(1);
+	margin-right: rem(1);
+}
+/* Иконка, заданная классом на кнопке : конец */
+/* -------------------- Кнопки : конец -------------------- */

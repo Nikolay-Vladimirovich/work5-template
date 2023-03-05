@@ -1,0 +1,28 @@
+$btn-close-svg-body: "<g><circle cx='8.5' cy='8.5' r='7.98683' transform='rotate(0.088995 8.5 8.5)' /><path d='M5.94629 5.94621L10.9408 10.7489' stroke-linecap='round'/><path d='M10.9409 5.95027L5.95037 10.7489' stroke-linecap='round'/></g>";
+$btn-close-w: 17;
+$btn-close-h: 17;
+$btn-close: (
+	"vb-w": 17,
+	"vb-h": 17,
+	"w": $btn-close-w,
+	"h": $btn-close-w,
+);
+@mixin iconed-close($svg-body, $svg-color) {
+	@include svg-bgi-stroke($svg-body, $svg-color, map.get($btn-close, "vb-w"), map.get($btn-close, "vb-h"), map.get($btn-close, "w"), map.get($btn-close, "w"));
+}
+@mixin btn-close-iconed($svg-color) {
+	.btn-close {
+		@include iconed-close($btn-close-svg-body, $svg-color);
+	}
+}
+@mixin btn-close-iconed-interactive($svg-color-hover, $svg-color-active: $svg-color-hover) {
+	.btn-close {
+		&:focus-visible,
+		&:hover {
+			@include iconed-close($btn-close-svg-body, $svg-color-hover);
+		}
+		&:active {
+			@include iconed-close($btn-close-svg-body, $svg-color-active);
+		}
+	}
+}

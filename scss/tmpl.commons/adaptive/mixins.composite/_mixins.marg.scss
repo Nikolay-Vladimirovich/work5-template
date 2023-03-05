@@ -1,0 +1,30 @@
+$marg-ratio: 2 !default;
+@function marg-min($x) {
+	$res: math.div($x, $marg-ratio);
+	@return $res;
+}
+// Margins
+@mixin a-marg($x, $x-min: marg-min($x), $type: 0) {
+	@include a-val-doorstep("marging", $x, $x-min, $type);
+}
+@mixin a-marg-h($a, $b: $a, $a-min: marg-min($a), $b-min: marg-min($b), $type: 0) {
+	@include a-val-doorstep("margin-left", $a, $a-min, $type);
+	@include a-val-doorstep("margin-right", $b, $b-min, $type);
+}
+@mixin a-marg-v($a, $b: $a, $a-min: marg-min($a), $b-min: marg-min($b), $type: 0) {
+	@include a-val-doorstep("margin-top", $a, $a-min, $type);
+	@include a-val-doorstep("margin-bottom", $b, $b-min, $type);
+}
+
+@mixin a-marg-l($x, $x-min: marg-min($x), $type: 0) {
+	@include a-val-doorstep("margin-left", $x, $x-min, $type);
+}
+@mixin a-marg-r($x, $x-min: marg-min($x), $type: 0) {
+	@include a-val-doorstep("margin-right", $x, $x-min, $type);
+}
+@mixin a-marg-t($x, $x-min: marg-min($x), $type: 0) {
+	@include a-val-doorstep("margin-top", $x, $x-min, $type);
+}
+@mixin a-marg-b($x, $x-min: marg-min($x), $type: 0) {
+	@include a-val-doorstep("margin-bottom", $x, $x-min, $type);
+}

@@ -1,0 +1,94 @@
+/* -------------------- menu - визуальное оформление : начало -------------------- */
+.menu {
+	&__link {
+		display: flex; /* Если хотим чтобы кликабельной была вся ширина пункта, то указываем flex без inline */
+		// min-height: rem(49);
+		padding-top: rem(15);
+		padding-bottom: rem(14);
+		padding-left: rem(25);
+		padding-right: rem(9);
+		min-height: rem(21); // Высота иконки
+		word-break: break-word; /* При большой длине слова, если оно не помещается в одну строку, оно будет перенесено */
+		gap: var(--menu-item-inner-gap, rem(20)); // Промежуток между иконкой и текстом
+		align-items: center; // Вертикальное выравнивание
+		justify-content: flex-start; // * Горизонтальное выравнивание
+		position: relative; // ! Важно
+		&::after {
+			/* Декоратор: */
+			content: "";
+			display: block;
+			position: absolute; // ! Важно
+			z-index: 0;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: var(--menu-item-decorator-width, rem(4));
+			transform: translateX(-100%);
+			background-color: transparent;
+			box-shadow: none;
+			/* Анимация: */
+			transition-duration: var(--simple-transition-duration, 0.25s);
+			transition-delay: var(--simple-transition-delay, 0);
+			transition-property: transform, background-color, opacity;
+			opacity: 0;
+		}
+		&:hover,
+		&:focus-visible,
+		&:active {
+			&::after {
+				/* Декоратор, появляющийся при интерактиве на пункте меню: */
+				/* Анимация появления: */
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+		&:focus-visible,
+		&:hover {
+			&::after {
+				/* Декоратор - цвета в состоянии hover: */
+				background-color: var(--menu-item-decorator-bg-color-hover, #6666cc);
+				box-shadow: rem(2) 0 rem(10) 0 var(--menu-item-decorator-shadow-color-hover, rgba(102, 102, 204, 0.67));
+			}
+		}
+		&:active {
+			&::after {
+				/* Декоратор - цвета при остальном интерактиве: */
+				background-color: var(--menu-item-decorator-bg-color-active, #6666cc);
+				box-shadow: rem(2) 0 rem(10) 0 var(--menu-item-decorator-shadow-color-active, rgba(102, 102, 204, 0.67));
+			}
+		}
+	}
+}
+/* Иконки внутри пункта меню через вставку в html-код: начало */
+/*
+Иконка может быть встроена внутри html-кода пункта меню как:
+i.icon>svg[fill='currentColor']>use[xlink:href='@img/svgsprites/svgsprites.svg#cross'] (emmet-конструкция)
+Либо с применением класса "iconed--cross" к самому menu__link
+Где вместо cross должно быть реальный id иконки из спрайта svgsprites.svg!
+*/
+.menu__link > .icon {
+	color: var(--menu-item-icon-color, #7A7B7B);
+	/* Анимация: */
+	svg {
+		width: var(--menu-item-icon-width, rem(21));
+	}
+}
+.menu__link:hover .icon {
+	color: var(--menu-item-icon-color-hover, #6666cc);
+}
+.menu__link:focus-visible .icon,
+.menu__link:active .icon {
+	color: var(--menu-item-icon-color-active, #6666cc);
+}
+/* Иконки внутри пункта меню через вставку в html-код: конец */
+
+/* ---------- Иконки классом : начало ---------- */
+.menu__link[class*="iconed--"] {
+	gap: var(--menu-item-inner-gap, rem(20)); // Промежуток между иконкой и текстом
+	align-items: center;
+}
+.menu__link[class*="iconed--"]::before {
+	width: var(--menu-item-icon-width, rem(21)); // Переменная находится в base/icons.scss
+}
+/* ---------- Иконки классом : конец ---------- */
+/* -------------------- menu - визуальное оформление : конец -------------------- */

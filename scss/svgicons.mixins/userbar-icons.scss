@@ -1,0 +1,26 @@
+$envelope-w: 24;
+$envelope-h: 24;
+$envelope-vb-w: 24;
+$envelope-vb-h: 18;
+// ? $color-misc - цвет уголка внутри конверта
+@function envelope-svg-body-helper($color-misc){
+	@return "<g><path d='M21.3295 0H3.10018C2.05806 0 1.21326 0.844805 1.21326 1.88692V16.1127C1.21326 17.1548 2.05806 17.9996 3.10018 17.9996H21.3295C22.3716 17.9996 23.2164 17.1548 23.2164 16.1127V1.88692C23.2164 0.844805 22.3716 0 21.3295 0Z' /><path d='M1 4.52862L10.7792 11.6989C11.5176 12.2404 12.7317 12.2404 13.4701 11.6989L23.4298 4.39735' stroke='#{$color-misc}' stroke-width='0.75477' stroke-miterlimit='22.9256'/></g>";
+}
+@mixin userbar-iconed($svg-color, $svg-color-misc: '#fff') {
+	$envelope-svg-body: envelope-svg-body-helper($svg-color-misc);
+	.iconed--envelope::before {
+		background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='#{$envelope-w}' height='#{$envelope-h}' viewBox='0 0 #{$envelope-vb-w} #{$envelope-vb-h}' fill='#{$svg-color}'>#{$envelope-svg-body}</svg>"));
+	}
+}
+@mixin userbar-iconed-interactive($svg-color-hover, $svg-color-active: $svg-color-hover, $svg-color-misc: '#fff') {
+	$envelope-svg-body: envelope-svg-body-helper($svg-color-misc);
+	.iconed--envelope {
+		&:hover::before {
+			background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='#{$envelope-w}' height='#{$envelope-h}' viewBox='0 0 #{$envelope-vb-w} #{$envelope-vb-h}' fill='#{$svg-color-hover}'>#{$envelope-svg-body}</svg>"));
+		}
+		&:focus-visible::before,
+		&:active::before {
+			background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='#{$envelope-w}' height='#{$envelope-h}' viewBox='0 0 #{$envelope-vb-w} #{$envelope-vb-h}' fill='#{$svg-color-active}'>#{$envelope-svg-body}</svg>"));
+		}
+	}
+}

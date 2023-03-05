@@ -1,0 +1,30 @@
+/* -------------------- managebox - позиционирование : начало -------------------- */
+.managebox {
+	display: grid;
+	row-gap: rem(10);
+	@include content-container;
+	margin-left: 0;
+	padding-bottom: rem(12);
+	&__bar {
+		margin-bottom: rem(10);
+		.btn {
+			min-width: rem(185);
+		}
+	}
+	&__title {
+		padding: rem(9) 0;
+		margin-bottom: rem(6);
+	}
+	&__body {
+		background: var(--managebox-bg-color, #fff);
+		border-radius: rem(5);
+		box-shadow: rem(0) rem(6) rem(21) rem(0) var(--managebox-box-shadow, rgba(40, 40, 40, 0.07));
+		padding: rem(20) rem(33) rem(13) rem(30);
+		position: relative;
+		width: 100%;
+		overflow: auto;
+		margin-bottom: rem(12);
+	}
+	
+}
+/* -------------------- managebox - позиционирование : конец -------------------- */

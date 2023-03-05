@@ -1,0 +1,60 @@
+/* -------------------- Иконки : начало -------------------- */
+// svg {
+// 	max-width: 100%;
+// 	height: auto;
+// }
+.icon {
+	flex-shrink: 0;
+	font-size: 0;
+	font-style: normal;
+	transition-duration: var(--simple-transition-duration);
+	transition-delay: var(--simple-transition-delay);
+	transition-property: color;
+	&,
+	svg {
+		max-width: 100%;
+		height: auto;
+		aspect-ratio: 1;
+	}
+}
+[class*="iconed--"] {
+	position: relative; // ! Важно для позиционирования маркеров
+}
+[class*="iconed--"]::before {
+	content: "";
+	display: inline-flex; /*  */
+	flex-shrink: 0; /* Запрещаем уменьшаться. На случай, если ширина кнопки будет очень маленькой. */
+	width: var(--btn-icon-width, rem(14));
+	// * Использую именно width, а не flex-basis, т.к. использую далее aspect-ratio для автовычисления высоты.
+	// TODO Возможно и flex-basis подойдет, нужно эксперементировать!
+	aspect-ratio: 1;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	/* Анимация иконки */
+	transition-duration: var(--simple-transition-duration);
+	transition-delay: var(--simple-transition-delay);
+
+	transition-property: background-image;
+}
+
+[class*="markered--"]::after {
+	content: "";
+	display: inline-flex; /*  */
+	flex-shrink: 0; /* Запрещаем уменьшаться. На случай, если ширина кнопки будет очень маленькой. */
+	width: var(--notice-width, rem(13));
+	// * Использую именно width, а не flex-basis, т.к. использую далее aspect-ratio для автовычисления высоты.
+	// TODO Возможно и flex-basis подойдет, нужно эксперементировать!
+	aspect-ratio: 1;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	/* Анимация иконки */
+	transition-duration: var(--simple-transition-duration);
+	transition-delay: var(--simple-transition-delay);
+
+	transition-property: background-image;
+}
+/* -------------------- Иконки : конец -------------------- */

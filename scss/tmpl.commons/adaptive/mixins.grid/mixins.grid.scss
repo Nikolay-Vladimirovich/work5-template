@@ -1,0 +1,38 @@
+@mixin col($size) {
+	flex: 0 0 auto;
+	width: calc(#{percentage(math.div($size, $grid-columns))} - #{$grid-gap});
+}
+
+@mixin container {
+	margin: 0 auto;
+	min-width: $container-min-width;
+	max-width: $content-max-width; // ! ширина контента
+	padding-left: $grid-gap-side;
+	padding-right: $grid-gap-side;
+}
+
+@mixin wide-container {
+	margin: 0 auto;
+	width: 100%;
+	min-width: $container-min-width;
+	max-width: $wide-container-max-width;
+}
+
+@mixin fullpage-container {
+	margin: 0 auto;
+	width: 100%;
+	min-width: $container-min-width;
+}
+
+@mixin row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -$grid-gap-side;
+	margin-right: -$grid-gap-side;
+	> * {
+		width: 100%;
+		max-width: 100%;
+		margin-left: $grid-gap-side;
+		margin-right: $grid-gap-side;
+	}
+}

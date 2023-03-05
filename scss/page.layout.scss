@@ -1,0 +1,61 @@
+/* ============================== page-layout : начало ============================== */
+body {
+	width: 100%;
+	height: 100%;
+	min-width: var(--page-min-width, rem($container-min-width));
+}
+.page {
+	display: grid;
+	min-height: 100%;
+	display: grid;
+	grid-template:
+		"aside header"
+		"aside main"
+		"aside footer";
+	min-width: var(--page-min-width, rem($container-min-width));
+	max-width: var(--page-max-width, rem($container-design-width));
+	margin: 0 auto;
+
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: rem(0) 1fr;
+
+	transition: grid-template-columns var(--simple-transition-duration, 0.25s);
+
+	@include bp(lg) {
+		padding-left: 0;
+		column-gap: rem(59);
+		grid-template:
+			"aside header"
+			"aside main";
+		grid-template-rows: auto 1fr auto;
+		grid-template-columns: rem(256) 1fr;
+	}
+}
+header.header {
+	grid-area: header;
+	margin-top: rem(19);
+	padding-left: rem(16);
+	padding-right: rem(16);
+	@include bp(sm) {
+		padding-left: rem(60);
+	}
+	@include bp(lg) {
+		padding-left: 0;
+	}
+}
+aside.aside {
+	grid-area: aside;
+	position: relative;
+	z-index: 1;
+	pointer-events: none; // !
+}
+main.main {
+	grid-area: main;
+	margin-top: rem(10);
+	padding-left: rem(16);
+	padding-right: rem(16);
+	@include bp(lg) {
+		padding-left: 0;
+	}
+}
+/* ============================== page-layout : конец ============================== */

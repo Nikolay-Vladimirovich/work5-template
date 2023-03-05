@@ -1,0 +1,293 @@
+/* -------------------- navbar - burger : начало -------------------- */
+.burgerbox {
+	transform: scale(0.5);
+}
+.btn--burger {
+	cursor: pointer;
+	user-select: none;
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	display: grid;
+	position: relative;
+	margin: 0;
+	text-align: center;
+	width: rem(60);
+	height: rem(65);
+	&:focus {
+		outline: none;
+	}
+	&::before,
+	&::after {
+		content: "";
+		width: 100%;
+		height: rem(8);
+		background-color: var(--burger-lines-color, #000);
+		display: block;
+		position: absolute;
+		border-radius: rem(20);
+		transition: background-color var(--simple-transition-duration, 0.25s);
+	}
+	&::before {
+		transform-origin: left center;
+	}
+	&::after {
+		right: 0;
+		top: rem(25);
+		transform-origin: right center;
+	}
+	.text {
+		color: var(--burger-font-color, #000);
+		font-family: var(----burger-font-family);
+		display: block;
+		position: absolute;
+		bottom: 0;
+		font-size: rem(17);
+		letter-spacing: em(2.5);
+		transition: color var(--simple-transition-duration, 0.25s);
+	}
+	/* Активное состояние кнопки меню : начало */
+	&.is-active {
+		&::before,
+		&::after {
+			content: "";
+			width: 100%;
+			height: rem(8);
+			background-color: var(--burger-lines-color-active, #000);
+		}
+		.text {
+			color: var(--burger-font-color-active, #000);
+		}
+	}
+	/* Активное состояние кнопки меню : конец */
+	/* Интерактивные состояния кнопки меню : начало */
+	&:hover,
+	&:focus-visible {
+		&::before,
+		&::after {
+			background-color: var(--burger-lines-color-hover, #000);
+		}
+		.text {
+			color: var(--burger-font-color-hover, #000);
+		}
+	}
+	&:active {
+		&::before,
+		&::after {
+			background-color: var(--burger-lines-color-active, #000);
+		}
+		.text {
+			color: var(--burger-font-color-active, #000);
+		}
+	}
+	&.is-active {
+		&::before,
+		&::after {
+			background-color: var(--burger-lines-color-isactive, #f00);
+		}
+		.text {
+			color: var(--burger-font-color-isactive, #f00);
+		}
+		&:hover,
+		&:focus-visible {
+			&::before,
+			&::after {
+				background-color: var(--burger-lines-color-hover, #000);
+			}
+			.text {
+				color: var(--burger-font-color-hover, #000);
+			}
+		}
+		&:active {
+			&::before,
+			&::after {
+				background-color: var(--burger-lines-color-active, #000);
+			}
+			.text {
+				color: var(--burger-font-color-active, #000);
+			}
+		}
+	}
+
+	/* Интерактивные состояния кнопки меню : конец */
+	&.is-active {
+		&::before {
+			animation: topBar_open var(--burger-toggle-duration, 1s) ease-in-out;
+			animation-fill-mode: forwards;
+		}
+
+		&::after {
+			animation: bottomBar_open var(--burger-toggle-duration, 1s) ease-in-out;
+			animation-fill-mode: forwards;
+		}
+
+		.text {
+			animation: menuLabel_open var(--burger-toggle-duration, 1s) ease-in;
+			animation-fill-mode: forwards;
+		}
+	}
+	& {
+		&::before {
+			animation: topBar_close var(--burger-toggle-duration, 1s) ease-in-out;
+			animation-fill-mode: forwards;
+		}
+
+		&::after {
+			animation: bottomBar_close var(--burger-toggle-duration, 1s) ease-in-out;
+			animation-fill-mode: forwards;
+		}
+
+		.text {
+			animation: menuLabel_close var(--burger-toggle-duration, 1s) ease-in;
+			animation-fill-mode: forwards;
+		}
+	}
+}
+// Открытие
+@keyframes topBar_open {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		width: rem(60);
+	}
+	10% {
+		transform: translateY(rem(-8)) rotate(0deg);
+		width: rem(60);
+	}
+	50% {
+		transform: translateY(rem(25)) rotate(45deg);
+		width: rem(84);
+	}
+	75% {
+		transform: translateY(rem(12)) rotate(45deg);
+		width: rem(84);
+	}
+	100% {
+		transform: translateY(rem(17)) rotate(45deg);
+		width: rem(84);
+	}
+}
+@keyframes bottomBar_open {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		width: rem(60);
+	}
+	10% {
+		transform: translateY(rem(-8)) rotate(0deg);
+		width: rem(60);
+	}
+	60% {
+		transform: translateY(0) rotate(-45deg);
+		width: rem(84);
+	}
+	75% {
+		transform: translateY(rem(-10)) rotate(-45deg);
+		width: rem(84);
+	}
+	100% {
+		transform: translateY(rem(-8)) rotate(-45deg);
+		width: rem(84);
+	}
+}
+@keyframes menuLabel_open {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	25% {
+		transform: translateY(rem(-18));
+	}
+	45% {
+		transform: translateY(rem(44));
+		opacity: 1;
+	}
+	48% {
+		transform: translateY(rem(50));
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(rem(30));
+		opacity: 0;
+	}
+}
+// Закрытие
+@keyframes topBar_close {
+	0% {
+		transform: translateY(rem(17)) rotate(45deg);
+		width: rem(84);
+	}
+	35% {
+		transform: translateY(rem(-8)) rotate(-4deg);
+		width: rem(60);
+	}
+	53% {
+		transform: translateY(rem(10)) rotate(3deg);
+		width: rem(60);
+	}
+	70% {
+		transform: translateY(rem(-6)) rotate(0deg);
+		width: rem(60);
+	}
+	100% {
+		transform: translateY(rem(-2)) rotate(0deg);
+		width: rem(60);
+	}
+}
+@keyframes bottomBar_close {
+	0% {
+		transform: translateY(rem(-8)) rotate(-45deg);
+		width: rem(84);
+	}
+	35% {
+		transform: translateY(rem(-18)) rotate(6deg);
+		width: rem(60);
+	}
+	53% {
+		transform: translateY(0) rotate(-3deg);
+		width: rem(60);
+	}
+	68% {
+		transform: translateY(rem(-7)) rotate(0deg);
+		width: rem(60);
+	}
+	100% {
+		transform: translateY(0) rotate(0deg);
+		width: rem(60);
+	}
+}
+@keyframes menuLabel_close {
+	0% {
+		transform: translateY(rem(30));
+		opacity: 0;
+	}
+	5% {
+		transform: translateY(rem(25));
+		opacity: 1;
+	}
+	25% {
+		transform: translateY(rem(-30));
+		opacity: 1;
+	}
+	37% {
+		transform: translateY(rem(-22));
+		opacity: 1;
+	}
+	45% {
+		transform: translateY(rem(-22));
+		opacity: 1;
+	}
+	58% {
+		transform: translateY(rem(8)) rotate(-10deg);
+		opacity: 1;
+	}
+	83% {
+		transform: translateY(rem(-6)) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+/* -------------------- navbar - burger : конец -------------------- */

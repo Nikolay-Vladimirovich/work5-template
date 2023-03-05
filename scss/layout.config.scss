@@ -1,0 +1,41 @@
+$content-min-width: 0;
+$content-max-width: 1001;
+
+// $pixelperfect-start-bp: lg;
+
+$container-min-width: 320;
+$container-design-width: 1440;
+$wide-container-max-width: 1920;
+// $content-max-width-val: 1120;
+
+// $container-min-width: $container-min-width-val + px !default;
+// $container-design-width: $container-design-width-val + px !default;
+// $wide-container-max-width: $wide-container-max-width-val + px !default;
+
+// $content-max-width: $content-max-width-val + px !default;
+
+// $wide-container-max-width-em: $wide-container-max-width-val + px !default;
+
+// $grid-columns: 6 !default;
+// $grid-gap: 0 !default;
+// $grid-gap-side: math.div($grid-gap, 2);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1400, 
+  ceil: $container-design-width,
+  deadline: $wide-container-max-width
+) !default;
+// $global-doorstep-1: lg;
+// $global-doorstep-2: ceil;
+
+$page-min-width: rem($container-min-width);
+$page-max-width: rem($container-design-width);
+:root {
+	--page-min-width: #{$page-min-width}; /* По-умолчанию = #{$page-min-width} = #{$container-min-width}px */
+	--page-max-width: #{$page-max-width}; /* По-умолчанию = #{$page-max-width} = #{$container-design-width}px */
+}

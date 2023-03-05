@@ -1,0 +1,20 @@
+// line-height
+$lh-ratio: 0.8;
+@function lh-min($i) {
+	$res: $i*$lh-ratio;
+	@return $res;
+}
+
+$fz-ratio: 0.8;
+@function lh-min($i) {
+	$res: $i*$fz-ratio;
+	@return $res;
+}
+
+@mixin a-lh($x, $x-min: lh-min($x), $type: 0) {
+	@include a-val-doorstep("line-height", $x, $x-min, $type);
+}
+
+@mixin a-fz($x, $x-min: lh-min($x), $type: 0) {
+	@include a-val-doorstep("font-size", $x, $x-min, $type);
+}

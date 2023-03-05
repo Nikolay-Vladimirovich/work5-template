@@ -1,0 +1,66 @@
+/* -------------------- managebox - типографика : начало -------------------- */
+$table-basis-width: 938;
+/* Таблица : начало */
+.table {
+}
+table.table--type-1 {
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+	position: relative;
+	min-width: rem(500);
+	a {
+		color: var(--managebox-links-font-color, #6e6e6e);
+	}
+	thead {
+		tr {
+			th {
+				text-align: left;
+				position: relative;
+				height: rem(30);
+				padding: rem(7) 0 rem(9);
+			}
+			th:nth-child(1) {
+				width: prc(120, $table-basis-width);
+			}
+			th:nth-child(2) {
+				width: prc(225, $table-basis-width);
+			}
+			th:nth-child(3) {
+				width: prc(284, $table-basis-width);
+			}
+			th:nth-child(4) {
+				// width: prc(308, $table-basis-width);
+			}
+		}
+	}
+	tbody {
+		tr:not(:last-child) {
+			td {
+				border-bottom: 1px solid var(--table-row-split-color, #e4e4e4);
+			}
+		}
+		tr:first-child {
+			td {
+				padding-top: rem(9);
+			}
+		}
+		tr:not(:first-child) {
+			td {
+				padding-top: rem(8);
+			}
+		}
+		tr {
+			td {
+				height: rem(75);
+				vertical-align: middle;
+				word-break: break-word;
+				&:not(:last-child) {
+					padding-right: rem(8);
+				}
+			}
+		}
+	}
+}
+/* Таблица : конец */
+/* -------------------- managebox - типографика : конец -------------------- */
