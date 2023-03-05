@@ -241,6 +241,7 @@ export default class NavigationBar {
 				if (this._navbar.isExpanded) {
 					this.trapping.enableOf('navbar');
 					this.$toggler.tabIndex = 0;
+					this.$toggler.focus();
 				} else {
 					this.trapping.reset();
 					this.trapping.disableOf('navbar');
