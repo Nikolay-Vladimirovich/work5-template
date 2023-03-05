@@ -262,7 +262,7 @@ export default class NavigationBar {
 				if (!this._navbar.isMobile) { return; }
 
 				if (this.opts.trappingEnable) {
-					this.trapping.enableOf('navbar');
+					this.drawAccessibility();
 				}
 				this.statements.isFreeze = false;
 				this.handlers('remove', 'esc');
@@ -274,8 +274,7 @@ export default class NavigationBar {
 				if (!this._navbar.isMobile) { return; }
 
 				if (this.opts.trappingEnable) {
-					this.trapping.reset();
-					this.trapping.disableOf('navbar');
+					this.drawAccessibility();
 				}
 				this.statements.isFreeze = true;
 				this.handlers('remove', 'esc');
